@@ -16,7 +16,7 @@ public class Url {
     @Column(name = "short_url", nullable = false)
     private String shortUrl;
 
-    @Column(name = "original_url", nullable = false)
+    @Column(name = "original_url", nullable = false, unique = true)
     private String originalUrl;
 
     @Builder
