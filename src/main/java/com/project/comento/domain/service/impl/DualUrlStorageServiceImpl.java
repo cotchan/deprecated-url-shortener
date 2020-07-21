@@ -4,6 +4,7 @@ import com.project.comento.domain.model.Url;
 import com.project.comento.domain.service.MySqlUrlStorageService;
 import com.project.comento.domain.service.UrlStorageService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -22,6 +23,7 @@ public class DualUrlStorageServiceImpl implements UrlStorageService {
     @Override
     public Url getByShortUrl(String shortUrl) {
         Url url = redisUrlStorageService.getByShortUrl(shortUrl);
+
         if (url == null) {
             url = mySqlUrlStorageService.findByShortUrl(shortUrl);
         }
@@ -33,6 +35,7 @@ public class DualUrlStorageServiceImpl implements UrlStorageService {
         return mySqlUrlStorageService.findByOriginalUrl(originalUrl);
     }
 
+    @Async("asyncExecutor")
     @Override
     public CompletableFuture<Boolean> saveUrl(Url url) {
         final CompletableFuture<Boolean> redisStorageResultFuture = redisUrlStorageService.saveUrl(url);
@@ -55,7 +58,7 @@ public class DualUrlStorageServiceImpl implements UrlStorageService {
             log.error("Error occurred in db operation " + e);
             return CompletableFuture.completedFuture(false);
         }
-        log.info("Given shortenedUrl<{}> is successfully saved at storage.", url);
+        log.debug("SUCCESS::Given shortenedUrl<{}> is successfully saved at storage.", url);
         return CompletableFuture.completedFuture(true);
     }
 }

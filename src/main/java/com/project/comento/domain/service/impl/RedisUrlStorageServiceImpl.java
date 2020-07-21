@@ -17,9 +17,6 @@ public class RedisUrlStorageServiceImpl implements UrlStorageService {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
-//    @Resource
-//    private static final String keyPrefix = "U:";
-
     @Override
     public Url getByOriginalUrl(final String originalUrl) {
         //Redis does not support this option.

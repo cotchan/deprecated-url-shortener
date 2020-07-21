@@ -1,6 +1,7 @@
 package com.project.comento.domain.service;
 
 import com.project.comento.domain.model.Url;
+import com.project.comento.domain.util.UrlChecker;
 import com.project.comento.domain.util.UrlConverter;
 import com.project.comento.domain.util.UuidGenerator;
 import lombok.extern.slf4j.Slf4j;
@@ -22,11 +23,17 @@ public class UrlEncodeService {
      * @return shortUrl
      */
     public CompletableFuture<String> encodeUrl(final String requestedUrl) {
-        log.debug("Hello encode shortUrl" + requestedUrl);
+
+        if (!UrlChecker.isValidWithProtocol(requestedUrl) &&
+            !UrlChecker.isValidWithoutProtocol(requestedUrl)) {
+            log.error("Failed to encode given url<{}>, This URL does not follow the URL format.", requestedUrl);
+            return CompletableFuture.completedFuture(Strings.EMPTY);
+        }
 
         final Url url = urlStorageService.getByOriginalUrl(requestedUrl);
 
         if (url != null) {
+            log.debug("SUCCESS::Requested encodeUrl already exists. url<{}>", url);
             return CompletableFuture.completedFuture(url.getShortUrl());
         }
 
@@ -42,7 +49,6 @@ public class UrlEncodeService {
 
         final CompletableFuture<String> handleResult = storageResultFuture.handle((isSuccess, throwable) -> {
             if (!isSuccess) {
-                //Fail case
                 log.error("Failed to encode given url<{}>", requestedUrl);
                 return Strings.EMPTY;
             }
