@@ -84,6 +84,3 @@
         <appender-ref ref="Error"/>
     </root>
 </configuration>
-
-
-

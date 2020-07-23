@@ -13,11 +13,6 @@ public class UrlDecodeService {
     @Resource(name = "dualUrlStorageServiceImpl")
     private UrlStorageService urlStorageService;
 
-    /**
-     * Gets the Url DTO object from the requested url.
-     * @param requestedUrl
-     * @return Url Object
-     */
     public Url decodeUrl(final String requestedUrl) {
         final Url decodeUrl = urlStorageService.getByShortUrl(requestedUrl);
         return decodeUrl;

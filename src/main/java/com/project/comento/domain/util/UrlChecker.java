@@ -14,7 +14,9 @@ public final class UrlChecker {
         try {
             UrlValidator defaultValidator = new UrlValidator(SCHEMES);
             return defaultValidator.isValid(url);
-        } catch (NullPointerException e) {
+        } catch (NullPointerException e)
+        {
+            log.error("NullPointer Error occurred in isValidWithProtocol operation " + e);
             throw new NullPointerException();
         }
     }
@@ -22,14 +24,17 @@ public final class UrlChecker {
     public static boolean isValidWithoutProtocol(String url) {
         try {
             UrlValidator defaultValidator = new UrlValidator();
-            for (int loop = 0; loop < SCHEMES.length; ++loop) {
+            for (int loop = 0; loop < SCHEMES.length; ++loop)
+            {
                 String newUrl = SCHEMES[loop] + "://" + url;
                 if(defaultValidator.isValid(newUrl)) {
                     return true;
                 }
             }
             return false;
-        } catch (NullPointerException e) {
+        } catch (NullPointerException e)
+        {
+            log.error("NullPointer Error occurred in isValidWithoutProtocol operation " + e);
             throw new NullPointerException();
         }
     }

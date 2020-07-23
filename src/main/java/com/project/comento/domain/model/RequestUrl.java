@@ -9,6 +9,7 @@ import lombok.Getter;
 @Builder(builderClassName = "RequestUrlBuilder")
 @JsonDeserialize(builder = RequestUrl.RequestUrlBuilder.class)
 public class RequestUrl {
+
     final private String url;
 
     @JsonPOJOBuilder(withPrefix = "")

@@ -14,14 +14,10 @@ import java.util.concurrent.CompletableFuture;
 @Component
 @Slf4j
 public class UrlEncodeService {
+
     @Resource(name = "dualUrlStorageServiceImpl")
     private UrlStorageService urlStorageService;
 
-    /**
-     * Generates a shortened Url for the requested Url.
-     * @param requestedUrl
-     * @return shortUrl
-     */
     public CompletableFuture<String> encodeUrl(final String requestedUrl) {
 
         if (!UrlChecker.isValidWithProtocol(requestedUrl) &&
