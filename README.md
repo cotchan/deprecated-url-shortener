@@ -244,9 +244,9 @@ public HttpResponse routeUsingShortUrl(@Param String url)
 
 |Field|Type|Null|Key|Default Value|DESC|
 |------|---|---|---|---|---|
-|uuid|bigint(20)|NO|PK|NULL|Unique Key for generating shortUrl|
-|original_url|varchar(255)|NO|UNIQUE|NULL|original url|
-|short_url|varchar(255)|NO||NULL|shortUrl created from originalUrl|
+|uuid|bigint(20)|NO|PK|NULL|Unique key for generating shortUrl|
+|original_url|varchar(255)|NO|UNIQUE|NULL|OriginalUrl|
+|short_url|varchar(255)|NO||NULL|ShortUrl created from originalUrl|
 
 
 ---
