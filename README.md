@@ -242,11 +242,11 @@ public HttpResponse routeUsingShortUrl(@Param String url)
 
 ### 4. DB schema design
 
-|Field|Type|Null|Key|Default Value|
-|------|---|---|---|---|
-|uuid|bigint(20)|NO|PK|NULL|
-|original_url|varchar(255)|NO|UNIQUE|NULL|
-|short_url|varchar(255)|NO||NULL|
+|Field|Type|Null|Key|Default Value|DESC|
+|------|---|---|---|---|---|
+|uuid|bigint(20)|NO|PK|NULL|Unique Key for generating shortUrl|
+|original_url|varchar(255)|NO|UNIQUE|NULL|original url|
+|short_url|varchar(255)|NO||NULL|shortUrl created from originalUrl|
 
 
 ---
