@@ -33,7 +33,7 @@
 
 ### 1. API
 
-### 1-1. User Level API
+#### 1-1. User Level API
 
 #### REST API
 ```
@@ -117,7 +117,7 @@ statusCode: 404
 
 ---
 
-### 1-2. System Level API    
+#### 1-2. System Level API    
 
 * Contents
     1. DTO
@@ -214,7 +214,7 @@ public HttpResponse routeUsingShortUrl(@Param String url)
 
 ---
 
-### 2. asdf
+### 2. Overall structure design    
 
 ---
 
@@ -224,11 +224,11 @@ public HttpResponse routeUsingShortUrl(@Param String url)
 
 --- 
 
-### 4. asdf
+### 4. DB schema design
 
 ---
 
-### 5. asdf
+### 5. Data Flow Diagram
 
 
 
