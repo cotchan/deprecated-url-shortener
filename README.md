@@ -18,9 +18,8 @@
 2. Overall structure design    
 
 3. Diagram    
-    3-1. Use Case Diagram    
-    3-2. Class Diagram    
-    3-3. Sequence Diagram    
+    3-1. Class Diagram    
+    3-2. Sequence Diagram         
     
 ---
 
@@ -37,7 +36,7 @@ GET /:shortUrl -> If you enter the short Url, you are redirected to the original
 
 ---
 
-<code> POST /urls </code>: A short Url is generated for the received Url.
+<code> POST /encode </code>: A short Url is generated for the received Url.
 
 Request Body
 ```
@@ -85,4 +84,27 @@ Fail case (Response Body)
 statusCode: 404
 {
 }
+
+```
+
+<code>GET /:shortUrl</code>: If you enter the short Url, you are redirected to the original Url page.   
+
+Request Body   
+
+```
+None
+```
+Success case (Response Body)
+```
+statusCode: 302 (Found)
+{
+}
+```
+Fail case (Response Body)
+```
+statusCode: 404
+{
+}
+```
+
 
