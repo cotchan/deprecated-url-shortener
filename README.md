@@ -6,6 +6,15 @@
 
 + Service URL: http://3.34.166.160
 
++ Summary
+    ##### REST API
+    
+    ```
+    POST /encode -> A short Url is generated for the received Url.
+    GET /decode/:shortUrl -> A UrlDTO Information is provided for the received Url.
+    GET /:shortUrl -> If you enter the short Url, you are redirected to the original Url page.
+    ```
+
 + ShortUrl Sample
 
     ```
