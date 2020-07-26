@@ -169,11 +169,11 @@ public Url decodeUrl(final String requestedUrl);
 ```
 
 #### 5. UrlEncodeController.java
-Class that handles "A short Url is generated for the received Url" request
+Class that handles "A short Url is generated for the received Url." request
 
 ```
 /**
- * Method that handles "A short Url is generated for the received Url" request
+ * Method that handles "A short Url is generated for the received Url." request
  * @param requestBody
  * @return shortUrl
  */
