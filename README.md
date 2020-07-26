@@ -2,7 +2,7 @@
 
 #### API service to generate short URL
 
-+ URL: http://3.34.166.160
++ Service URL: http://3.34.166.160
 
 + SUMMARY
 
@@ -23,9 +23,11 @@
 
 2. Overall structure design    
 
-3. Diagram    
-    3-1. Class Diagram    
-    3-2. Sequence Diagram         
+3. Class Diagram    
+
+4. DB schema design
+
+5. Data Flow Diagram
     
 ---
 
