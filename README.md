@@ -113,7 +113,7 @@ statusCode: 404
 
 * Contents
     1. DTO
-    2. UrlUrlStorageService.java
+    2. UrlStorageService.java
     3. UrlEncodeService.java 
     4. UrlDecodeService.java 
     5. UrlEncodeController.java 
@@ -133,7 +133,7 @@ class Url {
 }
 ```
 
-#### 2. UrlUrlStorageService.java  
+#### 2. UrlStorageService.java  
 UrlRepository class
 
 ```
@@ -149,7 +149,7 @@ Class to make shortUrl from OriginalUrl
 ```
 /**
  * Method to make shortUrl from OriginalUrl
- * @param requestedUrl
+ * @param originalUrl
  * @return shortUrl
  */
 public CompletableFuture<String> encodeUrl(final String requestedUrl)
@@ -162,7 +162,7 @@ Class to get UrlDTO information from shortUrl
 ```
 /**
  * Method to get UrlDTO information from shortUrl
- * @param requestUrl
+ * @param shortUrl
  * @return Url
  */
 public Url decodeUrl(final String requestedUrl);
@@ -172,16 +172,23 @@ public Url decodeUrl(final String requestedUrl);
 Class that handles "A short Url is generated for the received Url" request
 
 ```
-
+/**
+ * Method that handles "A short Url is generated for the received Url" request
+ * @param requestBody
+ * @return shortUrl
+ */
 public CompletableFuture<String> encodeUrl(@RequestBody String requestBody)
 ```
 
 #### 6. UrlDecodeController.java 
 Class that handles "A UrlDTO Information is provided for the received Url." request
 
-
 ```
-
+/**
+ * Method that handles "A UrlDTO Information is provided for the received Url." request
+ * @param shortUrl
+ * @return HttpResponse
+ */
 public HttpResponse decodeUrl(@Param String url)
 ```
 
@@ -189,7 +196,11 @@ public HttpResponse decodeUrl(@Param String url)
 Class that handles "If you enter the short Url, you are redirected to the original Url page." request
 
 ```
-
+/**
+ * Method to redirect to originalUrl page
+ * @param shortUrl
+ * @return HttpResponse
+ */
 public HttpResponse routeUsingShortUrl(@Param String url)
 ```
 
