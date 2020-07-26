@@ -7,7 +7,7 @@
 + Service URL: http://3.34.166.160
 
 + Summary
-    ##### REST API
+    + ##### REST API
     
     ```
     POST /encode -> A short Url is generated for the received Url.
