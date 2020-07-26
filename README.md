@@ -20,7 +20,7 @@
     + API Server: Springboot
     + DB: Mysql, Redis
 
-+ ShortUrl Sample
++ Redirection sample 
 
     ```
     1. www.kakao.com: http://3.34.166.160/f7Z3G2yWexF 
