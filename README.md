@@ -216,6 +216,8 @@ public HttpResponse routeUsingShortUrl(@Param String url)
 
 ### 2. Overall structure design    
 
+![overall_design](https://user-images.githubusercontent.com/44143312/88477531-c8963380-cf0e-11ea-896f-770c348debf3.jpg)
+
 ---
 
 ### 3. Class Diagram
