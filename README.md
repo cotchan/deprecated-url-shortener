@@ -1,6 +1,6 @@
 ### url-shortener
 
-+ Description
++ Service Description
 
     API service to generate short URL
 
@@ -14,6 +14,11 @@
     GET /decode/:shortUrl -> A UrlDTO Information is provided for the received Url.
     GET /:shortUrl -> If you enter the short Url, you are redirected to the original Url page.
     ```
++ How to make
+    + Server: Ubuntu 18.04 (AWS)
+    + Web-Server: Nginx
+    + API Server: Springboot
+    + DB: Mysql, Redis
 
 + ShortUrl Sample
 
