@@ -30,7 +30,7 @@
 #### REST API
 ```
 POST /encode -> A short Url is generated for the received Url.
-GET /decode/:shortUrl -> A original Url is provided for the received Url.
+GET /decode/:shortUrl -> A UrlDTO Information is provided for the received Url.
 GET /:shortUrl -> If you enter the short Url, you are redirected to the original Url page.
 ```
 
@@ -48,7 +48,7 @@ Success case (Response Body)
 ```
 statusCode: 200
 {
-"shortUrl"
+"shortUrl": String
 }
 ```
 
@@ -60,7 +60,7 @@ statusCode: 200
 }
 ```
 
-<code>GET /decode/:shortUrl</code>: A original Url is provided for the received Url.
+<code>GET /decode/:shortUrl</code>: A UrlDTO Information is provided for the received Url.
 
 Request Body
 ```
@@ -72,9 +72,9 @@ Success case (Response Body)
 ```
 statusCode: 200
 {
-"uuid":6328767103515780937,
-"shortUrl":"hHFY14UWV5F",
-"originalUrl":"www.toss.im/"
+"uuid": Long,
+"shortUrl": String,
+"originalUrl": String
 }
 ```
 
@@ -134,68 +134,63 @@ class Url {
 ```
 
 #### 2. UrlUrlStorageService.java  
-Class that handles business logic using UrlRepository class
+UrlRepository class
 
 ```
-
 Url getByOriginalUrl(String originalUrl);
 Url getByShortUrl(String shortUrl);
 CompletableFuture<Boolean> saveUrl(Url url);
 
 ```
     
-#### 4. UrlsFinderApi.java 
-This is a class that wraps Url objects in the form of UrlResponse.   
+#### 3. UrlEncodeService.java 
+Class to make shortUrl from OriginalUrl
 
 ```
 /**
- * This function handles the logic that requests the original URL through the shortened URL.
- * @param shortUrl
- * @return UrlResponse
+ * Method to make shortUrl from OriginalUrl
+ * @param requestedUrl
+ * @return shortUrl
  */
-public UrlResponse retrieveTheOriginalUrl(String shortUrl);
-```
-
-#### 5. UrlsRegisterApi.java 
-This is a class that wraps Url objects in the form of UrlResponse. 
+public CompletableFuture<String> encodeUrl(final String requestedUrl)
 
 ```
-/**
- * This function handles the logic to request a short URl through the original URL.
- * @param originalUrl
- * @return UrlResponse
- */
-public UrlResponse registerUrl(String originalUrl);
-```
 
-#### 6. UrlsController.java 
-Routing class 
+#### 4. UrlDecodeService.java 
+Class to get UrlDTO information from shortUrl
 
 ```
 /**
- * Requirement 1. A short Url must be provided for the original Url entered.
- * @param map
- * @return HttpResponse
+ * Method to get UrlDTO information from shortUrl
+ * @param requestUrl
+ * @return Url
  */
-@Post("/urls")
-public CompletableFuture<HttpResponse> registerUrl(@RequestBody HashMap<String, String> map);
+public Url decodeUrl(final String requestedUrl);
+```
 
-/**
- * Requirement 2. When the user enters a short URL, the original Url that has been input must be provided.
- * @param shortUrl
- * @return HttpResponse
- */
-@Get("/urls/:shortUrl")
-public CompletableFuture<HttpResponse> getOriginalUrl(@Param String shortUrl);
+#### 5. UrlEncodeController.java
+Class that handles "A short Url is generated for the received Url" request
 
-/**
- * Requirement 3. If the user enters a short URL, it should be redirected to the original URL.
- * @param shortUrl
- * @return HttpResponse
- */
-@Get("/:shortUrl")
-public CompletableFuture<HttpResponse> redirectToOriginalUrl(@Param String shortUrl);
+```
 
+public CompletableFuture<String> encodeUrl(@RequestBody String requestBody)
+```
+
+#### 6. UrlDecodeController.java 
+Class that handles "A UrlDTO Information is provided for the received Url." request
+
+
+```
+
+public HttpResponse decodeUrl(@Param String url)
+```
+
+#### 7. UrlRouterController.java
+Class that handles "If you enter the short Url, you are redirected to the original Url page." request
+
+```
+
+public HttpResponse routeUsingShortUrl(@Param String url)
 ```
 
 
