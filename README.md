@@ -1,10 +1,10 @@
 ### url-shortener
 
-#### API service to generate short URL
++ Description
+
+    API service to generate short URL
 
 + Service URL: http://3.34.166.160
-
-+ SUMMARY
 
 + ShortUrl Sample
 
