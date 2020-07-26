@@ -212,4 +212,24 @@ Class that handles "If you enter the short Url, you are redirected to the origin
 public HttpResponse routeUsingShortUrl(@Param String url)
 ```
 
+---
+
+### 2. asdf
+
+---
+
+### 3. Class Diagram
+
+![ClassDiagram (2)](https://user-images.githubusercontent.com/44143312/88477041-c7fb9e00-cf0a-11ea-9fce-1a978128db91.jpg)
+
+--- 
+
+### 4. asdf
+
+---
+
+### 5. asdf
+
+
+
 
