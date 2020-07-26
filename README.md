@@ -23,8 +23,8 @@
 + ShortUrl Sample
 
     ```
-    1. www.kakao.com: f7Z3G2yWexF 
-    2. www.toss.im: hHFY14UWV5F
+    1. www.kakao.com: http://3.34.166.160/f7Z3G2yWexF 
+    2. www.toss.im: http://3.34.166.160/hHFY14UWV5F
     ```
 
 ---
