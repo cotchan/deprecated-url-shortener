@@ -106,7 +106,6 @@ Fail case (Response Body)
 statusCode: 404
 {
 }
-
 ```
 
 <code>GET /:shortUrl</code>: If you enter the short Url, you are redirected to the original Url page.   
@@ -162,7 +161,6 @@ UrlRepository class
 Url getByOriginalUrl(String originalUrl);
 Url getByShortUrl(String shortUrl);
 CompletableFuture<Boolean> saveUrl(Url url);
-
 ```
     
 #### 3. UrlEncodeService.java 
@@ -175,7 +173,6 @@ Class to make shortUrl from OriginalUrl
  * @return shortUrl
  */
 public CompletableFuture<String> encodeUrl(final String requestedUrl)
-
 ```
 
 #### 4. UrlDecodeService.java 
