@@ -1,6 +1,6 @@
 ### url-shortener
 
-#### API service to generate shortened URL
+#### API service to generate short URL
 
 + URL: http://3.34.166.160
 
