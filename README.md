@@ -17,7 +17,7 @@
 + How to make
     + Server: Ubuntu 18.04 (AWS)
     + Web-Server: Nginx
-    + API Server: Springboot
+    + API Server: Springboot 2.3.2
     + DB: Mysql, Redis
 
 + Redirection sample 
