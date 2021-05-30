@@ -4,7 +4,7 @@
 
     API service to generate short URL
 
-+ Service URL: http://3.34.166.160
++ Service URL: ~~http://3.34.166.160~~
 
 + API Service Summary
     + ##### REST API
